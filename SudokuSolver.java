@@ -19,7 +19,7 @@ public class SudokuSolver {
 
         printBoard();
 
-        if (solveBoard(board)) {
+        if (solveBoard()) {
             System.out.println("Solved successfully!");
         }
         else {
@@ -85,7 +85,7 @@ public class SudokuSolver {
                 !isNumberInBox(number, row, column);
     }
 
-    private static boolean solveBoard(int[][] board) {
+    private static boolean solveBoard() {
         for (int row = 0; row < GRID_SIZE; row++) {
             for (int column = 0; column < GRID_SIZE; column++) {
                 if (board[row][column] == 0) {
@@ -93,7 +93,7 @@ public class SudokuSolver {
                         if (isValidPlacement(numberToTry, row, column)) {
                             board[row][column] = numberToTry;
 
-                            if (solveBoard(board)) {
+                            if (solveBoard()) {
                                 return true;
                             }
                             else {
